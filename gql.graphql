@@ -1,0 +1,68 @@
+QUERY
+query MyQuery {
+  listJeffreysTables {
+    items {
+      EmpName
+      EmpNo
+      Sex
+    }
+  }
+  getJeffreysTable(EmpNo: 4) {
+    Sex
+    EmpNo
+    EmpName
+  }
+}
+
+CREATE
+mutation MyMutation {
+  createJeffreysTable(input: {EmpName: "David", EmpNo: 4, Sex: "M"}) {
+    EmpName
+    EmpNo
+    Sex
+  }
+}
+//
+mutation MyMutation($EmpName: String = "David", $EmpNo: Int = 4, $Sex: String = "M") {
+  createJeffreysTable(input: {EmpName: $EmpName, EmpNo: $EmpNo, Sex: $Sex}) {
+    EmpName
+    EmpNo
+    Sex
+  }
+}
+DELETE
+mutation MyMutation2($input: DeleteJeffreysTableInput = {EmpNo: 4}) {
+  deleteJeffreysTable(input: $input) {
+    EmpName
+    EmpNo
+    Sex
+  }
+}
+UPDATE
+mutation MyMutation2 {
+  updateJeffreysTable(input: {EmpNo: 2, Sex: "F"}) {
+    EmpName
+    EmpNo
+    Sex
+  }
+}
+//
+mutation MyMutation2($input: UpdateJeffreysTableInput = {EmpNo: 2, Sex: "F"}) {
+  updateJeffreysTable(input: $input) {
+    EmpName
+    EmpNo
+    Sex
+  }
+}
+
+SUB
+subscription MySubscription {
+  onUpdateAemassQeDevMainWorkFlowStatus(id: "68549637c2c-eb71-4290-abaa-72e8e8bd4a61", status: "initializing") { //只有改成init才會response
+    end
+    id
+    stages
+    start
+    status
+    type
+  }
+}
