@@ -1,4 +1,4 @@
-QUERY
+// QUERY
 query MyQuery {
   listJeffreysTables {
     items {
@@ -14,7 +14,7 @@ query MyQuery {
   }
 }
 
-CREATE
+// CREATE
 mutation MyMutation {
   createJeffreysTable(input: {EmpName: "David", EmpNo: 4, Sex: "M"}) {
     EmpName
@@ -22,7 +22,7 @@ mutation MyMutation {
     Sex
   }
 }
-//
+
 mutation MyMutation($EmpName: String = "David", $EmpNo: Int = 4, $Sex: String = "M") {
   createJeffreysTable(input: {EmpName: $EmpName, EmpNo: $EmpNo, Sex: $Sex}) {
     EmpName
@@ -30,7 +30,7 @@ mutation MyMutation($EmpName: String = "David", $EmpNo: Int = 4, $Sex: String = 
     Sex
   }
 }
-DELETE
+// DELETE
 mutation MyMutation2($input: DeleteJeffreysTableInput = {EmpNo: 4}) {
   deleteJeffreysTable(input: $input) {
     EmpName
@@ -38,7 +38,7 @@ mutation MyMutation2($input: DeleteJeffreysTableInput = {EmpNo: 4}) {
     Sex
   }
 }
-UPDATE
+// UPDATE
 mutation MyMutation2 {
   updateJeffreysTable(input: {EmpNo: 2, Sex: "F"}) {
     EmpName
@@ -55,7 +55,7 @@ mutation MyMutation2($input: UpdateJeffreysTableInput = {EmpNo: 2, Sex: "F"}) {
   }
 }
 
-SUB
+// subscription
 subscription MySubscription {
   onUpdateAemassQeDevMainWorkFlowStatus(id: "68549637c2c-eb71-4290-abaa-72e8e8bd4a61", status: "initializing") { //只有改成init才會response
     end
