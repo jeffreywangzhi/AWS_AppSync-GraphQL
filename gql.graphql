@@ -55,7 +55,7 @@ mutation MyMutation2($input: UpdateJeffreysTableInput = {EmpNo: 2, Sex: "F"}) {
   }
 }
 
-// subscription
+// SUBSCRIPTION
 subscription MySubscription {
   onUpdateAemassQeDevMainWorkFlowStatus(id: "68549637c2c-eb71-4290-abaa-72e8e8bd4a61", status: "initializing") { //只有改成init才會response
     end
